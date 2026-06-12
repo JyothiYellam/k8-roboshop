@@ -51,12 +51,12 @@ metadata:
      project: roboshop
      tier: backend
      component: catalogue
-  spec:
-    selector:
-       project: roboshop
-       tier: backend
-       component: catalogue
-    ports:
-      - protocol: TCP
-        port: 8080 #serviceport
-        targetPort: 8080  #containerport
+spec:
+  selector:
+    project: roboshop
+    tier: backend
+    component: catalogue
+  ports:
+    - protocol: TCP
+      port: 8080 #serviceport
+      targetPort: 8080  #containerport
