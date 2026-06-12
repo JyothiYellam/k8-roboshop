@@ -24,7 +24,7 @@ spec:
       containers:
         - name: mongodb
           image: jyothi023/mongodb:1.0.0 
-----
+---
 apiVersion: v1
 kind: Service
 metadata:
