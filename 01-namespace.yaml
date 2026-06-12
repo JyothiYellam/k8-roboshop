@@ -1,11 +1,9 @@
 apiVersion: v1
-kind: Service
+kind: Namespace
 metadata:
   name: roboshop
   labels:
      project: roboshop
-     purpose: db
-     component: mongodb
-  spec:
-    selector:
-      
+     environment: dev
+     purpose: poc
+  
