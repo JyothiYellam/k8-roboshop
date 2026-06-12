@@ -9,7 +9,7 @@ metadata:
     component: catalogue
 data:
   MONGO: "true"
-  MONGO_URL: "mongodb://<MONGODB-SERVER-IPADDRESS>:27017/catalogue"
+  MONGO_URL: "mongodb://mongodb:27017/catalogue"
 ---
 apiVersion: apps/vi
 kind: Deployment
@@ -39,7 +39,7 @@ spec:
             image: jyothi023/catalogue:1.0.0
             envFrom:
              - configMapRef:
-                 name: catalogue
+                name: catalogue
                  
 ---
 
