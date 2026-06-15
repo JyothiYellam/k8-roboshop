@@ -10,16 +10,17 @@ metadata:
 data:
   MONGO: "true"
   MONGO_URL: "mongodb://mongodb:27017/catalogue"
+
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: catalogue
-  namespace: roboshop
-  labels:
-    project: roboshop
-    tier: backend
-    component: catalogue
+   name: catalogue
+   namespace: roboshop
+   labels: 
+     project: roboshop
+     tier: backend
+     component: catalogue
 spec:
   replicas: 1
   selector:
@@ -28,7 +29,7 @@ spec:
       tier: backend
       component: catalogue
   template:
-    metadata:
+    metadata: 
       labels:
         project: roboshop
         tier: backend
@@ -37,20 +38,41 @@ spec:
       containers:
         - name: catalogue
           image: jyothi023/catalogue:1.0.0
+          resources:
+            requests:
+               cpu: "200"
+               memory: "128Mi"
+            limits:
+              cpu: "200"
+              memory: "128Mi"
+          readinessProbe:
+              # httpGet:
+              # path: /health
+              # port: 8080
+            tcpSocket: 
+                port: 8080
+            failureThreshold: 2
+            periodSeconds: 10
+            initialDelaySeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            periodSeconds: 10
+            failureThreshold: 3
           envFrom:
             - configMapRef:
-               name: catalogue
-                 
+                name: catalogue
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
   name: catalogue
+  namespace: roboshop
   labels:
-     project: roboshop
-     tier: backend
-     component: catalogue
+    project: roboshop
+    tier: backend
+    component: catalogue
 spec:
   selector:
     project: roboshop
@@ -58,5 +80,5 @@ spec:
     component: catalogue
   ports:
     - protocol: TCP
-      port: 8080 #serviceport
-      targetPort: 8080  #containerport
+      port: 8080
+      targetPort: 8080
