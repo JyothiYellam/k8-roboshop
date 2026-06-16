@@ -39,8 +39,8 @@ spec:
         project: roboshop
         tier: backend
         component: payment
-        enableServiceLinks: false
     spec:
+      enableServiceLinks: false
       containers:
         - name: payment
           image: jyothi023/payment:1.4.0 
