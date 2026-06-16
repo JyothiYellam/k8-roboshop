@@ -37,7 +37,7 @@ spec:
               # path: /health
               # port: 8080
             tcpSocket: 
-                port: 8080
+                port: 80
             failureThreshold: 2
             periodSeconds: 10
             initialDelaySeconds: 15
