@@ -124,10 +124,11 @@ spec:
               path: /
               port: 80
             periodSeconds: 10
-            failureThreshold: 3
+            failureThreshold: 2
             volumeMounts:
               - name: nginx-config
                 mountPath: "/etc/nginx/nginx.conf"
+                subPath: nginx.conf
                 readOnly: true
 ---
 apiVersion: v1
