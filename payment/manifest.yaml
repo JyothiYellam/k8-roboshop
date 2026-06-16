@@ -15,7 +15,7 @@ data:
   AMQP_HOST: "rabbitmq"
   AMQP_USER: "roboshop"
   AMQP_PASS: "roboshop123"
-
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
