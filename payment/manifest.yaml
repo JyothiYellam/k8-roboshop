@@ -57,7 +57,7 @@ metadata:
 spec:
   selector: 
     project: roboshop
-    tier: backendb
+    tier: backend
     component: payment
   ports: 
    - protocol: TCP
