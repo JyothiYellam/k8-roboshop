@@ -125,11 +125,11 @@ spec:
               port: 80
             periodSeconds: 10
             failureThreshold: 2
-            volumeMounts:
-              - name: nginx-config
-                mountPath: "/etc/nginx/nginx.conf"
-                subPath: nginx.conf
-                readOnly: true
+          volumeMounts:
+            - name: nginx-config
+              mountPath: "/etc/nginx/nginx.conf"
+              subPath: nginx.conf
+              readOnly: true
 ---
 apiVersion: v1
 kind: Service
